@@ -1,0 +1,26 @@
+src/test/java/com/homecrew/authservice/AuthserviceApplicationTests.java
+  s_3d9bbfd7b8519e::t_1f81e22a02da6d 7
+  s_3d9bbfd7b8519e::t_d78b8060bc9e14 9-10
+src/main/java/com/homecrew/authservice/AuthserviceApplication.java
+  s_3d9bbfd7b8519e::t_a7828180311286 10-12
+src/main/java/com/homecrew/authservice/config/SecurityConfig.java
+  s_3d9bbfd7b8519e::t_080fa68683aa72 11-14,16-17
+src/main/java/com/homecrew/authservice/controller/AuthController.java
+  s_3d9bbfd7b8519e::t_a1b5bbaa91ea84 11-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "e94dac8f6ef6b669a6cd83ad43bd5e9063659ef1",
+  "prompts": {},
+  "sessions": {
+    "s_3d9bbfd7b8519e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "56713074-cac4-4411-b930-44405690d84c",
+        "model": "anthropic.claude-opus-5"
+      },
+      "human_author": "mThanuj <mullagurithanuj0@gmail.com>"
+    }
+  }
+}

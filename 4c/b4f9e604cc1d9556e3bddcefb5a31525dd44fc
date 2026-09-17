@@ -1,0 +1,19 @@
+src/main/java/com/homecrew/authservice/AuthserviceApplication.java
+  s_31a1eea127e4f8::t_346003286933d7 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "4cb4f9e604cc1d9556e3bddcefb5a31525dd44fc",
+  "prompts": {},
+  "sessions": {
+    "s_31a1eea127e4f8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6f4f44be-5501-4eca-af87-9e8310efb295",
+        "model": "anthropic.claude-opus-5"
+      },
+      "human_author": "mThanuj <mullagurithanuj0@gmail.com>"
+    }
+  }
+}

@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import lombok.Data;
 
 @Data
-public class ApiResponse<T> {
+public final class ApiResponse<T> {
 
   private int status;
   private boolean success;

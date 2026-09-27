@@ -13,8 +13,13 @@ import jakarta.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import lombok.Builder;
+import lombok.Getter;
+
 @Entity
 @Table(name = "accounts")
+@Builder
+@Getter
 public class Account {
 
   @Id
@@ -31,6 +36,7 @@ public class Account {
   private String passwordHash;
 
   @Column
+  @Builder.Default
   private boolean emailVerified = false;
 
   @Column(updatable = false)

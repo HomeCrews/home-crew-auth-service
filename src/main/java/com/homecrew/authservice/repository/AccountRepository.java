@@ -8,4 +8,8 @@ import com.homecrew.authservice.entity.Account;
 
 public interface AccountRepository extends JpaRepository<Account, UUID> {
 
+  boolean existsByEmail(String email);
+
+  boolean existsByPhone(String phone);
+
 }

@@ -41,9 +41,9 @@ public class AuthServiceImpl implements AuthService {
 
     account = this.accountRepository.save(account);
 
-    // create user (microservice call)
+    // TODO: create user (microservice call)
 
-    // handler user creation failure
+    // TODO: handler user creation failure
 
     return RegisterResponse.builder().id(account.getId()).build();
   }

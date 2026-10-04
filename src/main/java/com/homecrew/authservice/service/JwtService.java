@@ -23,41 +23,37 @@ import io.jsonwebtoken.security.Keys;
 public class JwtService {
 
   @Value("${jwt.secret}")
-  public String SECRET;
+  public String secret;
 
   @Value("${jwt.access-token-expiry}")
-  public Duration ACCESS_TOKEN_EXPIRY;
+  public Duration accessTokenExpiry;
 
   @Value("${jwt.refresh-token-expiry}")
-  public Duration REFRESH_TOKEN_EXPIRY;
+  public Duration refreshTokenExpiry;
 
   public String generateToken(String email, TokenType tokenType) {
     Map<String, Object> claims = new HashMap<>();
 
-    String token = "";
-
-    switch (tokenType) {
-      case ACCESS_TOKEN -> token = this.createAccessToken(claims, email);
-      case REFRESH_TOKEN -> token = this.createRefreshToken(claims, email);
-    }
-
-    return token;
+    return switch (tokenType) {
+      case ACCESS_TOKEN -> this.createAccessToken(claims, email);
+      case REFRESH_TOKEN -> this.createRefreshToken(claims, email);
+    };
   }
 
   private String createAccessToken(Map<String, Object> claims, String email) {
     return Jwts.builder().claims(claims).subject(email).issuedAt(new Date())
-        .expiration(new Date(System.currentTimeMillis() + this.ACCESS_TOKEN_EXPIRY.toMillis()))
+        .expiration(new Date(System.currentTimeMillis() + this.accessTokenExpiry.toMillis()))
         .signWith(this.getSignKey()).compact();
   }
 
   private String createRefreshToken(Map<String, Object> claims, String email) {
     return Jwts.builder().claims(claims).subject(email).issuedAt(new Date())
-        .expiration(new Date(System.currentTimeMillis() + this.REFRESH_TOKEN_EXPIRY.toMillis()))
+        .expiration(new Date(System.currentTimeMillis() + this.refreshTokenExpiry.toMillis()))
         .signWith(this.getSignKey()).compact();
   }
 
   private SecretKey getSignKey() {
-    byte[] keyBytes = Decoders.BASE64.decode(this.SECRET);
+    byte[] keyBytes = Decoders.BASE64.decode(this.secret);
     return Keys.hmacShaKeyFor(keyBytes);
   }
 
@@ -85,6 +81,6 @@ public class JwtService {
 
   public Boolean validateToken(String token, UserDetails userDetails) {
     final String email = this.extractSubject(token);
-    return (email.equals(userDetails.getUsername()) && !this.isTokenExpired(token));
+    return email.equals(userDetails.getUsername()) && !this.isTokenExpired(token);
   }
 }

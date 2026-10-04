@@ -188,6 +188,21 @@
       <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
     <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-api</artifactId>
+      <version>0.13.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-impl</artifactId>
+      <version>0.13.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-jackson</artifactId>
+      <version>0.13.0</version>
+    </dependency>
+    <dependency>
       <!--
         Hot reload for the containerised dev loop: see ./dev up in
         home-crew-infrastructure. DevTools POLLS the classpath rather than using
@@ -357,7 +372,7 @@
             <eclipse>
               <file>${project.basedir}/config/eclipse-formatter.xml</file>
             </eclipse>
-            <removeUnusedImports/>
+            <removeUnusedImports />
             <importOrder>
               <order>java,javax,jakarta,org,com,</order>
             </importOrder>
@@ -367,8 +382,8 @@
               build-disagrees-with-save problem this change exists to remove.
               Annotation placement comes from the profile instead.
             -->
-            <trimTrailingWhitespace/>
-            <endWithNewline/>
+            <trimTrailingWhitespace />
+            <endWithNewline />
           </java>
 
           <!--
@@ -419,8 +434,8 @@
                 <exclude>**/*.cmd</exclude>
                 <exclude>.mvn/wrapper/**</exclude>
               </excludes>
-              <trimTrailingWhitespace/>
-              <endWithNewline/>
+              <trimTrailingWhitespace />
+              <endWithNewline />
             </format>
 
             <!--
@@ -441,7 +456,7 @@
               <excludes>
                 <exclude>target/**</exclude>
               </excludes>
-              <endWithNewline/>
+              <endWithNewline />
             </format>
           </formats>
         </configuration>

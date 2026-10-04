@@ -15,8 +15,13 @@ import jakarta.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name = "refresh_tokens")
+@AllArgsConstructor
+@NoArgsConstructor
 public class RefreshToken {
 
   @Id

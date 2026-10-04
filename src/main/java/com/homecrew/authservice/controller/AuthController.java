@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.homecrew.authservice.dto.ApiResponse;
+import com.homecrew.authservice.dto.LoginRequest;
+import com.homecrew.authservice.dto.LoginResponse;
 import com.homecrew.authservice.dto.RegisterRequest;
 import com.homecrew.authservice.dto.RegisterResponse;
 import com.homecrew.authservice.service.AuthService;
@@ -40,6 +42,16 @@ public class AuthController {
 
     return ResponseEntity.status(HttpStatus.CREATED)
         .body(ApiResponse.success(HttpStatus.CREATED, "User registered successfully", response));
+  }
+
+  @PostMapping("/login")
+  public ResponseEntity<ApiResponse<LoginResponse>> login(
+      @RequestBody @Valid LoginRequest request) {
+
+    LoginResponse response = this.authService.login(request);
+
+    return ResponseEntity.status(HttpStatus.OK)
+        .body(ApiResponse.success(HttpStatus.OK, "User logged in successfully", response));
   }
 
 }

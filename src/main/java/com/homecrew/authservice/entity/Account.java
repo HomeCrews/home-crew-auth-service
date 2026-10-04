@@ -13,13 +13,17 @@ import jakarta.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "accounts")
 @Builder
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Account {
 
   @Id
